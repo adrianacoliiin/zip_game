@@ -109,10 +109,19 @@ class GameController extends ChangeNotifier {
       return;
     }
     if (path.contains(cell)) return;
-    if (path.isNotEmpty && !rules!.areAdjacent(path.last, cell)) return;
     if (_lastInvalidDragCell == cell) return;
+    if (path.isNotEmpty && !rules!.areAdjacent(path.last, cell)) {
+      // Un paso en diagonal es un movimiento inválido y cuenta como error.
+      // Saltos mayores (arrastre muy rápido que se brinca celdas) se ignoran.
+      if (_isDiagonal(path.last, cell)) _tryAdd(cell, fromDrag: true);
+      return;
+    }
     _tryAdd(cell, fromDrag: true);
   }
+
+  bool _isDiagonal(int a, int b) =>
+      (rules!.rowOf(a) - rules!.rowOf(b)).abs() == 1 &&
+      (rules!.colOf(a) - rules!.colOf(b)).abs() == 1;
 
   void endDrag() => _lastInvalidDragCell = null;
 
