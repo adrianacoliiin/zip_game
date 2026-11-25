@@ -4,6 +4,15 @@ App de **ZIP Game** (Práctica I · Desarrollo para Dispositivos Inteligentes ·
 Tablero 6×6: conecta los números en orden con un solo camino que pase por las 36 celdas, sin diagonales y sin repetir.
 Funciona con **mouse (Chrome)** y **táctil (Android)** y se comunica con la API de AdonisJS (`zip_game_api`).
 
+## Equipo
+
+- Adriana Alejandra Colin Muñoz
+- Michelle Cordova Torres
+- Diego Daher Díaz Contreras
+- Manuel Alejandro Hernández Rubio
+
+Profesor: Ing. Luis Ángel Martínez Vargas
+
 ## Requisitos
 
 - Flutter estable reciente (`flutter --version`, `flutter doctor`)
